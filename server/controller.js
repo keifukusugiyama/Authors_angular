@@ -37,7 +37,7 @@ module.exports = {
     //put /authors/:id 
     update:(req, res)=>{
         //find Author by id given on the route, update with json file on body
-        Author.findByIdAndUpdate(req.params.id, req.body)
+        Author.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
         //if successful, respond with json file with the updating Author
         .then(results => res.json(results))
         //if there's error, respond with json file of error

@@ -1,0 +1,15 @@
+
+<div *ngIf="EditErrors">
+  <p style="color:red">
+    {{EditErrors.message}}
+  </p>
+</div>
+
+<form>
+  <label> Name:  
+    <input type="text" name="oneAuthor.Name" [(ngModel)]="oneAuthor.Name" />
+  </label>
+  <br>
+  <input type="submit" value="Submit" (click)="onSubmitEdit()"/>
+  <button [routerLink]="['/']">Cancel</button>
+</form>

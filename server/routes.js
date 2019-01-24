@@ -14,4 +14,8 @@ module.exports = function(app){
     .put ('/api/authors/:id', controller.update)
     //delete id
     .delete ('/api/authors/:id', controller.delete)
+
+    app.all("*", (req,res,next) => {
+        res.sendFile(path.resolve("./public/dist/public/index.html"))
+    });
 }

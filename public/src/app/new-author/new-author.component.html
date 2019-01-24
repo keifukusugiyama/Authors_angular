@@ -1,0 +1,16 @@
+<p>Add a new Author: </p>
+
+<div *ngIf="createNewErrors">
+  <p *ngIf="createNewErrors.errors.Name" style="color:red">
+    {{createNewErrors.errors.Name.message}}
+  </p>
+</div>
+
+<form>
+<label> Name:  
+  <input type="text" name="newAuthor.Name" [(ngModel)]="newAuthor.Name" />
+</label>
+<br>
+<input type="submit" value="Submit" (click)="onSubmitNew()"/>
+<button [routerLink]="['/']">Cancel</button>
+</form>
