@@ -28,8 +28,9 @@ export class EditAuthorComponent implements OnInit {
   showOneAuthor(id: String) { 
     let observable = this._httpService.getAuthorByID(id);
     observable.subscribe(data => {
-      if (data['errors']) {
+      if (data['message']) {
         console.log(data);
+        this.EditErrors = {message: "ID is not found. Please try with correct ID or create a new one."};
       }
       else{
         this.oneAuthor = data;
